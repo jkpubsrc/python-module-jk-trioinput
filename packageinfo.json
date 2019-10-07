@@ -1,0 +1,50 @@
+{
+	"language": "python3",
+	"name": "jk_trioinput",
+	"version": "0.2019.10.7",
+	"meta": {
+		"description": "This python module ...",
+		"keywords": [
+			"..."
+		],
+		"license": "Apache 2.0",
+		"development_status": "alpha",
+		"authors": [
+			{
+				"name": "JÃ¼rgen Knauth",
+				"email": "pubsrc@binary-overflow.de"
+			}
+		],
+		"wiki": {
+			"page": "DevDocs:jk_trioinput"
+		}
+	},
+	"repositories": [
+		{
+			"type": "github",
+			"user": "jkpubsrc",
+			"project": "........",
+			"devon_publish": false
+		},
+		{
+			"type": "pypy",
+			"project": "........",
+			"devon_publish": false
+		}
+	],
+	"source": {
+		"packages": [
+			"jk_trioinput"
+		],
+		"extra_data_files": [
+		]
+	},
+	"requirements": {
+		"python_packages": [
+			"jk_console"
+		],
+		"python_packages_dev": [
+		]
+	}
+}
+
