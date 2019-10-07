@@ -26,6 +26,7 @@ setup(
 	download_url = "https://github.com/jkpubsrc/......../tarball/0.2019.10.7",
 	include_package_data = False,
 	install_requires = [
+		"jk_console",
 	],
 	keywords = [
 		"...",

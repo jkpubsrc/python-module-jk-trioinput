@@ -11,4 +11,3 @@ from .input import readConsoleInput
 
 
 
-
