@@ -82,6 +82,9 @@ async def readConsoleInput(outputText:str = None, cx:int = None, cy:int = None, 
 			buf.jumpCursorRight()
 		elif key == jk_console.Console.Input.KEY_CTRL_CURSOR_LEFT:
 			buf.jumpCursorLeft()
+		elif key == jk_console.Console.Input.KEY_DELETE:
+			if buf.deleteUnderCursor():
+				bChanged = True
 		elif key == jk_console.Console.Input.KEY_BACKSPACE:
 			if buf.moveCursorLeft():
 				if buf.deleteUnderCursor():

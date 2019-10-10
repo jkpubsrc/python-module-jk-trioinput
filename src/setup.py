@@ -23,7 +23,7 @@ setup(
 		"License :: OSI Approved :: Apache Software License",
 	],
 	description = "This python module ...",
-	download_url = "https://github.com/jkpubsrc/......../tarball/0.2019.10.7",
+	download_url = "https://github.com/jkpubsrc/......../tarball/0.2019.10.10",
 	include_package_data = False,
 	install_requires = [
 		"jk_console",
@@ -37,7 +37,7 @@ setup(
 		"jk_trioinput",
 	],
 	url = "https://github.com/jkpubsrc/........",
-	version = "0.2019.10.7",
+	version = "0.2019.10.10",
 	zip_safe = False,
 	long_description = readme(),
 	long_description_content_type="text/markdown",
