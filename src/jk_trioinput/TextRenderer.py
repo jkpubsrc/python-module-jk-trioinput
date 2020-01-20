@@ -179,6 +179,81 @@ class TextRenderer(object):
 		jk_console.Console.moveCursorTo(self.__cx - scrollOfsX + cursorPos, self.__cy)
 	#
 
+	def renderCursorOnly(self, text:str, cursorPos:int):
+		debugText = ""
+
+		# Define default color map:
+		#	0 = scroll arrows
+		#	1 = used as default, if syntax highlighter does not exist
+
+		colorMap = {
+			0: self.__arrowColor,
+			1: self.__defaultTextColor,
+		}
+		colorMapR = {
+			self.__arrowColor: 0,
+			self.__defaultTextColor: 1,
+		}
+		nColorIndex = 2
+
+		# Result:
+		# * Initial data in <c>colorMap</c> and <c>colorMapR</c>
+
+		# ----------------------------------------------------------------
+
+		# Add more colors depending on highlighter.
+		# Split the text into characters.
+
+		bufColor = []
+		bufText = []
+		if self.__syntaxHighlighter:
+			for color, chunk in self.__syntaxHighlighter(text):
+				if color in colorMapR:
+					nColor = colorMapR[color]
+				else:
+					nColor = nColorIndex
+					colorMapR[color] = nColorIndex
+					colorMap[nColorIndex] = color
+					nColorIndex += 1
+				for c in chunk:
+					bufColor.append(nColor)
+					bufText.append(c)
+		else:
+			for c in text:
+				bufColor.append(1)
+				bufText.append(c)
+
+		# Result:
+		# * Modification of <c>colorMap</c> and <c>colorMapR</c>
+		# * <c>bufColor</c> receives all color indices
+		# * <c>bufText</c> receives all characters
+
+		# ----------------------------------------------------------------
+
+		# If buffer is longer than view, try to scroll to center.
+
+		if len(bufText) > self.__width:
+			scrollOfsX = cursorPos - self.__middleX
+			if scrollOfsX >= len(bufText) - self.__width:
+				scrollOfsX = len(bufText) - self.__width
+			if scrollOfsX < 0:
+				scrollOfsX = 0
+		else:
+			scrollOfsX = 0
+
+		bIsClippedLeft = scrollOfsX > 0
+		bIsClippedRight = len(bufText) - scrollOfsX > self.__width
+
+		# Result:
+		# * <c>scrollOfsX</c> number of characters scrolled horizontally
+
+		# ----------------------------------------------------------------
+
+		# move cursor
+
+		jk_console.Console.moveCursorTo(self.__cx - scrollOfsX + cursorPos, self.__cy)
+	#
+
 #
 
 

@@ -53,8 +53,8 @@ async def readConsoleInput(outputText:str = None, cx:int = None, cy:int = None, 
 		bChanged = False
 
 		key = None
-		with trio.move_on_after(2):
-			key = await trio.to_thread.run_sync(jk_console.Console.Input.readKey)
+		#with trio.move_on_after(2):
+		key = await trio.to_thread.run_sync(jk_console.Console.Input.readKey)
 		if key is None:
 			# timeout
 			continue

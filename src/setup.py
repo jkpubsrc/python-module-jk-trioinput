@@ -16,14 +16,14 @@ def readme():
 		return f.read()
 
 setup(
-	author = "JÃ¼rgen Knauth",
+	author = "Jürgen Knauth",
 	author_email = "pubsrc@binary-overflow.de",
 	classifiers = [
 		"Development Status :: 3 - Alpha",
 		"License :: OSI Approved :: Apache Software License",
 	],
-	description = "This python module ...",
-	download_url = "https://github.com/jkpubsrc/......../tarball/0.2019.10.10",
+	description = "This python module provides asynchroneous console input.",
+	download_url = "https://github.com/jkpubsrc/python-module-jk-trioinput/tarball/0.2019.10.10",
 	include_package_data = False,
 	install_requires = [
 		"jk_console",
@@ -36,7 +36,7 @@ setup(
 	packages = [
 		"jk_trioinput",
 	],
-	url = "https://github.com/jkpubsrc/........",
+	url = "https://github.com/jkpubsrc/python-module-jk-trioinput",
 	version = "0.2019.10.10",
 	zip_safe = False,
 	long_description = readme(),
